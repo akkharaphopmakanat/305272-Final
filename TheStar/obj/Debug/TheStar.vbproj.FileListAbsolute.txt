@@ -1,0 +1,15 @@
+D:\VS PJ\TheStar\TheStar\bin\Debug\TheStar.exe
+D:\VS PJ\TheStar\TheStar\bin\Debug\TheStar.pdb
+D:\VS PJ\TheStar\TheStar\bin\Debug\TheStar.xml
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.vbprojAssemblyReference.cache
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.main.resources
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.Resources.resources
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.vbproj.GenerateResource.cache
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.vbproj.CoreCompileInputs.cache
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.exe
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.xml
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.pdb
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.login.resources
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.admin.resources
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.register.resources
+D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.reservation.resources
