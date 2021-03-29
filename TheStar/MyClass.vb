@@ -3,8 +3,6 @@ Public Class Passenger
     Public Name, Sirname, Username, Password, UserType, Origin, Destination, Direction As String
     Public Age, Discount As Integer
     Public Birthday As Date
-
-
     Public Sub Register(Username, Password, Name, Sirname, Birthday)
         Me.Username = Username
         Me.Password = Password
@@ -48,9 +46,7 @@ Public Class Passenger
         End If
     End Sub
     Public Sub Logout()
-
     End Sub
-
 End Class
 
 Class Train

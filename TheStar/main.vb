@@ -142,15 +142,23 @@ Public Class main
     End Sub
     Private Sub ComboBox_Origin_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Origin.SelectedIndexChanged
         Passenger.Origin = ComboBox_Origin.Text
+        reservation.ComboBox1.Text = ComboBox_Origin.Text
+        reservation.ComboBox2.Text = ComboBox_Destination.Text
         Oindex = stn_th.IndexOf(Passenger.Origin)
-        If ComboBox_Destination.Text <> "" Then
+        If ComboBox_Destination.Text <> Nothing Then
+            reservation.km = Math.Abs(Data_TimeTable.Rows(Oindex).Cells(2).Value - Data_TimeTable.Rows(Dindex).Cells(2).Value)
+            reservation.Label3.Text = reservation.km
             showTrain()
         End If
     End Sub
     Private Sub ComboBox_Destination_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Destination.SelectedIndexChanged
         Passenger.Destination = ComboBox_Destination.Text
+        reservation.ComboBox1.Text = ComboBox_Origin.Text
+        reservation.ComboBox2.Text = ComboBox_Destination.Text
         Dindex = stn_th.IndexOf(Passenger.Destination)
-        If ComboBox_Origin.Text <> "" Then
+        If ComboBox_Origin.Text <> Nothing Then
+            reservation.km = Math.Abs(Data_TimeTable.Rows(Oindex).Cells(2).Value - Data_TimeTable.Rows(Dindex).Cells(2).Value)
+            reservation.Label3.Text = reservation.km
             showTrain()
         End If
     End Sub
@@ -240,6 +248,7 @@ Public Class main
         'MessageBox.Show("ขบวนที่จอด " + Passenger.Origin + Passenger.Destination + vbCrLf + message)
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Enabled = False
         reservation.Show()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
