@@ -135,30 +135,31 @@ Public Class main
     End Sub
     Private Sub btn_login_Click(sender As Object, e As EventArgs) Handles btn_login.Click
         If Passenger.Name Is Nothing Then
+            Me.Enabled = False
             login.Show()
         Else
-            Passenger.Login(0, 0)
+            Passenger.Login(Nothing, Nothing)
         End If
     End Sub
     Private Sub ComboBox_Origin_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Origin.SelectedIndexChanged
         Passenger.Origin = ComboBox_Origin.Text
-        reservation.ComboBox1.Text = ComboBox_Origin.Text
-        reservation.ComboBox2.Text = ComboBox_Destination.Text
+        reservation.label_org.Text = "ต้นทาง : " + ComboBox_Origin.Text
+        reservation.label_dest.Text = "ปลายทาง : " + ComboBox_Destination.Text
         Oindex = stn_th.IndexOf(Passenger.Origin)
         If ComboBox_Destination.Text <> Nothing Then
             reservation.km = Math.Abs(Data_TimeTable.Rows(Oindex).Cells(2).Value - Data_TimeTable.Rows(Dindex).Cells(2).Value)
-            reservation.Label3.Text = reservation.km
+            reservation.lable_distance.Text = "ระยะทาง : " + reservation.km.ToString
             showTrain()
         End If
     End Sub
     Private Sub ComboBox_Destination_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Destination.SelectedIndexChanged
         Passenger.Destination = ComboBox_Destination.Text
-        reservation.ComboBox1.Text = ComboBox_Origin.Text
-        reservation.ComboBox2.Text = ComboBox_Destination.Text
+        reservation.label_org.Text = "ต้นทาง : " + ComboBox_Origin.Text
+        reservation.label_dest.Text = "ปลายทาง : " + ComboBox_Destination.Text
         Dindex = stn_th.IndexOf(Passenger.Destination)
         If ComboBox_Origin.Text <> Nothing Then
             reservation.km = Math.Abs(Data_TimeTable.Rows(Oindex).Cells(2).Value - Data_TimeTable.Rows(Dindex).Cells(2).Value)
-            reservation.Label3.Text = reservation.km
+            reservation.lable_distance.Text = "ระยะทาง : " + reservation.km.ToString
             showTrain()
         End If
     End Sub
@@ -248,10 +249,12 @@ Public Class main
         'MessageBox.Show("ขบวนที่จอด " + Passenger.Origin + Passenger.Destination + vbCrLf + message)
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Enabled = False
-        reservation.Show()
-    End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        admin.Show()
+        If Passenger.Name Is Nothing Then
+            Me.Enabled = False
+            login.Show()
+        Else
+            Me.Enabled = False
+            reservation.Show()
+        End If
     End Sub
 End Class

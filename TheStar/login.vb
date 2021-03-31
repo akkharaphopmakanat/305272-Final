@@ -18,6 +18,7 @@
             MsgBox("กรุณากรอกข้อมูลชื่อผู้ใช้ และ รหัสผ่านให้ครบถ้วน")
         Else
             main.Passenger.Login(login_input_user.Text, login_input_password.Text)
+            main.Enabled = True
             Me.Close()
         End If
     End Sub

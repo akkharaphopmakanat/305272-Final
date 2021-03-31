@@ -25,6 +25,7 @@ Public Class Passenger
                     Me.Name = main.Data_User.Rows(i).Cells(2).Value
                     Me.Sirname = main.Data_User.Rows(i).Cells(3).Value
                     Me.Birthday = main.Data_User.Rows(i).Cells(4).Value
+                    Me.Age = DateDiff(DateInterval.Year, Me.Birthday, Today) - 1
                     complete = True
                     MsgBox("ยินดีต้อนรับ " + Me.Name + " " + Me.Sirname)
                     main.btn_login.Text = "ออกจากระบบ"

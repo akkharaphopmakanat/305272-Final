@@ -10,6 +10,5 @@ D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.exe
 D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.xml
 D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.pdb
 D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.login.resources
-D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.admin.resources
 D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.register.resources
 D:\VS PJ\TheStar\TheStar\obj\Debug\TheStar.reservation.resources

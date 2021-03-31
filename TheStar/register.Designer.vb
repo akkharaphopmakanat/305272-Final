@@ -33,10 +33,6 @@ Partial Class register
         Me.reg_sir = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Register_Register = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
@@ -122,58 +118,18 @@ Partial Class register
         '
         'Register_Register
         '
-        Me.Register_Register.Location = New System.Drawing.Point(12, 289)
+        Me.Register_Register.Location = New System.Drawing.Point(14, 165)
         Me.Register_Register.Name = "Register_Register"
         Me.Register_Register.Size = New System.Drawing.Size(345, 23)
         Me.Register_Register.TabIndex = 18
         Me.Register_Register.Text = "Register"
         Me.Register_Register.UseVisualStyleBackColor = True
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(89, 142)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(114, 17)
-        Me.CheckBox1.TabIndex = 19
-        Me.CheckBox1.Text = "สูงไม่เกิน 100 ซ.ม."
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(89, 165)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(199, 17)
-        Me.CheckBox2.TabIndex = 20
-        Me.CheckBox2.Text = "สูง เกิน 100 ซ.ม. แต่ไม่เกิน 150 ซ.ม."
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(89, 188)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(161, 17)
-        Me.CheckBox3.TabIndex = 21
-        Me.CheckBox3.Text = "พระภิกษุ สามเณร หรือนักบุญ"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(89, 211)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(222, 17)
-        Me.CheckBox4.TabIndex = 22
-        Me.CheckBox4.Text = "อาสาสมัครสาธารณะสุขประจำหมู่บ้าน (อสม.)"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
         'CheckBox5
         '
         Me.CheckBox5.AutoSize = True
         Me.CheckBox5.Enabled = False
-        Me.CheckBox5.Location = New System.Drawing.Point(89, 234)
+        Me.CheckBox5.Location = New System.Drawing.Point(89, 142)
         Me.CheckBox5.Name = "CheckBox5"
         Me.CheckBox5.Size = New System.Drawing.Size(117, 17)
         Me.CheckBox5.TabIndex = 23
@@ -184,12 +140,8 @@ Partial Class register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(371, 324)
+        Me.ClientSize = New System.Drawing.Size(371, 204)
         Me.Controls.Add(Me.CheckBox5)
-        Me.Controls.Add(Me.CheckBox4)
-        Me.Controls.Add(Me.CheckBox3)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Register_Register)
         Me.Controls.Add(Me.reg_sir)
         Me.Controls.Add(Me.Label3)
@@ -219,9 +171,5 @@ Partial Class register
     Friend WithEvents reg_sir As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Register_Register As Button
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox4 As CheckBox
     Friend WithEvents CheckBox5 As CheckBox
 End Class

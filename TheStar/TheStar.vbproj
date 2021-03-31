@@ -70,12 +70,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin.Designer.vb">
-      <DependentUpon>admin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="admin.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
@@ -119,9 +113,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="admin.resx">
-      <DependentUpon>admin.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
     </EmbeddedResource>

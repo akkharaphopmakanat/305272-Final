@@ -34,7 +34,6 @@ Partial Class main
         Me.ต้นทางออก = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ปลายทางถึง = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ที่นั่งว่าง = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Data_TimeTable = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -141,15 +140,6 @@ Partial Class main
         Me.ที่นั่งว่าง.Name = "ที่นั่งว่าง"
         Me.ที่นั่งว่าง.ReadOnly = True
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(316, 601)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(240, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "แก้ไข"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Data_TimeTable
         '
         Me.Data_TimeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -233,7 +223,6 @@ Partial Class main
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Data_TimeTable)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btn_checktrain)
         Me.Controls.Add(Me.ComboBox_Destination)
@@ -260,7 +249,6 @@ Partial Class main
     Friend WithEvents ComboBox_Destination As ComboBox
     Friend WithEvents btn_checktrain As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button1 As Button
     Friend WithEvents Data_TimeTable As DataGridView
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label1 As Label
