@@ -36,7 +36,7 @@ Partial Class login
         Me.Login_Login.Name = "Login_Login"
         Me.Login_Login.Size = New System.Drawing.Size(165, 23)
         Me.Login_Login.TabIndex = 0
-        Me.Login_Login.Text = "Login"
+        Me.Login_Login.Text = "เข้าสู่ระบบ"
         Me.Login_Login.UseVisualStyleBackColor = True
         '
         'login_lbl_user
@@ -54,7 +54,7 @@ Partial Class login
         Me.Login_Register.Name = "Login_Register"
         Me.Login_Register.Size = New System.Drawing.Size(165, 23)
         Me.Login_Register.TabIndex = 2
-        Me.Login_Register.Text = "Register"
+        Me.Login_Register.Text = "ลงทะเบียน"
         Me.Login_Register.UseVisualStyleBackColor = True
         '
         'login_input_user

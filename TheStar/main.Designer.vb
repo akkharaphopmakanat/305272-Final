@@ -143,7 +143,7 @@ Partial Class main
         'Data_TimeTable
         '
         Me.Data_TimeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Data_TimeTable.Location = New System.Drawing.Point(304, 193)
+        Me.Data_TimeTable.Location = New System.Drawing.Point(292, 235)
         Me.Data_TimeTable.Name = "Data_TimeTable"
         Me.Data_TimeTable.Size = New System.Drawing.Size(240, 150)
         Me.Data_TimeTable.TabIndex = 11
@@ -177,7 +177,7 @@ Partial Class main
         'Data_Train_Type
         '
         Me.Data_Train_Type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Data_Train_Type.Location = New System.Drawing.Point(304, 349)
+        Me.Data_Train_Type.Location = New System.Drawing.Point(292, 391)
         Me.Data_Train_Type.Name = "Data_Train_Type"
         Me.Data_Train_Type.Size = New System.Drawing.Size(240, 150)
         Me.Data_Train_Type.TabIndex = 15
@@ -186,7 +186,7 @@ Partial Class main
         'Data_User
         '
         Me.Data_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Data_User.Location = New System.Drawing.Point(47, 349)
+        Me.Data_User.Location = New System.Drawing.Point(35, 391)
         Me.Data_User.Name = "Data_User"
         Me.Data_User.Size = New System.Drawing.Size(240, 150)
         Me.Data_User.TabIndex = 16
@@ -195,7 +195,7 @@ Partial Class main
         'Data_reserved
         '
         Me.Data_reserved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Data_reserved.Location = New System.Drawing.Point(47, 193)
+        Me.Data_reserved.Location = New System.Drawing.Point(35, 235)
         Me.Data_reserved.Name = "Data_reserved"
         Me.Data_reserved.Size = New System.Drawing.Size(240, 150)
         Me.Data_reserved.TabIndex = 17

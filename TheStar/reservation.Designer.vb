@@ -42,6 +42,8 @@ Partial Class reservation
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.label_type_price = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.lable_total = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -88,9 +90,9 @@ Partial Class reservation
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 529)
+        Me.Button1.Location = New System.Drawing.Point(12, 409)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(162, 23)
+        Me.Button1.Size = New System.Drawing.Size(285, 89)
         Me.Button1.TabIndex = 9
         Me.Button1.Text = "ย้อนกลับ"
         Me.Button1.UseVisualStyleBackColor = True
@@ -228,12 +230,35 @@ Partial Class reservation
         Me.PictureBox1.TabIndex = 23
         Me.PictureBox1.TabStop = False
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(335, 409)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(285, 89)
+        Me.Button2.TabIndex = 24
+        Me.Button2.Text = "ยืนยันการจองตั๋ว"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'lable_total
+        '
+        Me.lable_total.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lable_total.AutoSize = True
+        Me.lable_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.lable_total.Location = New System.Drawing.Point(330, 360)
+        Me.lable_total.Name = "lable_total"
+        Me.lable_total.Size = New System.Drawing.Size(279, 29)
+        Me.lable_total.TabIndex = 25
+        Me.lable_total.Text = "ยอดที่ต้องชำระ :                    "
+        Me.lable_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'reservation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 564)
+        Me.ClientSize = New System.Drawing.Size(632, 513)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lable_total)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.label_type_price)
         Me.Controls.Add(Me.label_senoir_discount)
@@ -284,4 +309,6 @@ Partial Class reservation
     Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents label_type_price As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents lable_total As Label
 End Class

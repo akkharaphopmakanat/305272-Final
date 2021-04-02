@@ -1,6 +1,8 @@
 ﻿Public Class reservation
     Public km As Single
+    Dim total As Integer
     Dim fee_type As Single
+    Dim reserve_train
     Function check_train_class(input)
         Select Case input
             Case "บนอ.ป."
@@ -39,7 +41,7 @@
     End Sub
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
-        Dim reserve_train = ComboBox3.Text
+        reserve_train = ComboBox3.Text
         Dim reserve_train_index As Integer
         ComboBox4.Text = Nothing
         ComboBox4.Items.Clear()
@@ -84,22 +86,20 @@
 
     Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
         If ComboBox4.Text <> Nothing Then
-
             Try
                 PictureBox1.Image = Image.FromFile(My.Computer.FileSystem.CurrentDirectory + "\img\" + ComboBox4.Text + ".jpg")
             Catch ex As Exception
             End Try
-
             Dim train_class = check_train_class(ComboBox4.Text)(0)
             Dim train_bed = check_train_class(ComboBox4.Text)(1)
             Dim train_air = check_train_class(ComboBox4.Text)(2)
             Dim fee_class, fee_bed, fee_air As Single
             If train_class = 1 Then
-                fee_class = 0.92
+                fee_class = 98 / 92.25
             ElseIf train_class = 2 Then
-                fee_class = 0.44
+                fee_class = 45 / 92.25
             ElseIf train_class = 3 Then
-                fee_class = 0.21
+                fee_class = 20 / 92.25
             End If
             If train_bed = 1 Then
                 fee_bed = 500
@@ -126,19 +126,18 @@
                 label_air_price.Text = "ราคา " + fee_air.ToString + " บาท"
             End If
             If main.Passenger.GetAge() > 60 Then
-                Dim total = (km * fee_class) / 2 + fee_bed + fee_air + fee_type
+                total = (km * fee_class) / 2 + fee_bed + fee_air + fee_type
                 CheckBox3.Checked = True
                 label_senoir_discount.Text = "ราคา " + (-(km * fee_class) / 2).ToString + " บาท"
             Else
-                Dim total = (km * fee_class) + fee_bed + fee_air
+                total = (km * fee_class) + fee_bed + fee_air + fee_type
                 CheckBox3.Checked = False
                 label_senoir_discount.Text = "ราคา " + 0.ToString + " บาท"
             End If
             label_class.Text = "ชั้น : " + train_class.ToString
             label_distance_price.Text = "ราคา " + (km * fee_class).ToString + " บาท"
+            lable_total.Text = "ยอดที่ต้องชำระ " + total.ToString + " บาท"
         End If
-
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -146,4 +145,15 @@
         Me.Close()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If ComboBox4.Text = Nothing Then
+            MsgBox("กรุณาเลือกชั้นขบวนรถ")
+        End If
+        If Not System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\bin\reserved.csv") Then
+            MsgBox("ไม่พบไฟล์ reserved.csv กำลังสร้างไฟล์ใหม่")
+            System.IO.File.Create(My.Computer.FileSystem.CurrentDirectory + "\bin\reserved.csv")
+        Else
+            IO.File.AppendAllText("bin\userdata.csv", DateTimePicker1.Value + "," + main.Passenger.Name.ToString + "," + main.Passenger.Sirname + "," + main.Passenger.Origin + "," + main.Passenger.Destination + "," + reserve_train + "," + ComboBox4.Text + "," + total + "," + vbNewLine)
+        End If
+    End Sub
 End Class
