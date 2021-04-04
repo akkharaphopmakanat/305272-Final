@@ -56,6 +56,7 @@ Partial Class register
         '
         Me.reg_input_password.Location = New System.Drawing.Point(89, 38)
         Me.reg_input_password.Name = "reg_input_password"
+        Me.reg_input_password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.reg_input_password.Size = New System.Drawing.Size(268, 20)
         Me.reg_input_password.TabIndex = 13
         '

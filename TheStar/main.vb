@@ -277,6 +277,7 @@ Public Class main
     End Function
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
         reservation.DateTimePicker1.Value = Me.DateTimePicker1.Value
+        subtrackReserved()
     End Sub
     Dim gtdStnIndex, gtdTrnIndex As Integer
     Function getTrainTime(stn, train)

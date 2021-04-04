@@ -244,7 +244,7 @@ Partial Class reservation
         Me.lable_total.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lable_total.AutoSize = True
         Me.lable_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.lable_total.Location = New System.Drawing.Point(330, 360)
+        Me.lable_total.Location = New System.Drawing.Point(330, 348)
         Me.lable_total.Name = "lable_total"
         Me.lable_total.Size = New System.Drawing.Size(279, 29)
         Me.lable_total.TabIndex = 25
