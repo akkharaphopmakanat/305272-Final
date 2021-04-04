@@ -6,6 +6,9 @@
         Else
             main.Passenger.Register(reg_input_user.Text, reg_input_password.Text, reg_name.Text, reg_sir.Text, birthday.Value)
             IO.File.AppendAllText("bin\userdata.csv", reg_input_user.Text + "," + reg_input_password.Text + "," + reg_name.Text + "," + reg_sir.Text + "," + birthday.Value + vbNewLine)
+            main.Enabled = True
+            main.initUserData()
+            Me.Close()
         End If
     End Sub
 

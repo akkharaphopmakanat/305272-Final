@@ -157,6 +157,7 @@
             IO.File.AppendAllText("bin\reserved.csv", DateTimePicker1.Value.Date.ToString + "," + main.Passenger.Name.ToString + "," + main.Passenger.Sirname + "," + main.Passenger.Origin + "," + main.Passenger.Destination + "," + reserve_train + "," + ComboBox4.Text + "," + total.ToString + vbNewLine)
             MsgBox("จองสำเร็จ")
             Me.Close()
+            main.Enabled = True
         End If
     End Sub
 End Class

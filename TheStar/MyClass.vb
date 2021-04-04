@@ -49,9 +49,3 @@ Public Class Passenger
     Public Sub Logout()
     End Sub
 End Class
-
-Class Train
-    Public ID, Capacity As Integer
-    Public Origin, Destination, Type As String
-    Public StopList As List(Of String)
-End Class
