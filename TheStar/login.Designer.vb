@@ -91,6 +91,8 @@ Partial Class login
         Me.Controls.Add(Me.Login_Register)
         Me.Controls.Add(Me.login_lbl_user)
         Me.Controls.Add(Me.Login_Login)
+        Me.MaximumSize = New System.Drawing.Size(387, 237)
+        Me.MinimumSize = New System.Drawing.Size(387, 237)
         Me.Name = "login"
         Me.Text = "เข้าสู่ระบบ"
         Me.ResumeLayout(False)

@@ -89,6 +89,7 @@
             Try
                 PictureBox1.Image = Image.FromFile(My.Computer.FileSystem.CurrentDirectory + "\img\" + ComboBox4.Text + ".jpg")
             Catch ex As Exception
+                MsgBox("ไม่สามารถแสดงรูปภาพได้")
             End Try
             Dim train_class = check_train_class(ComboBox4.Text)(0)
             Dim train_bed = check_train_class(ComboBox4.Text)(1)
@@ -153,7 +154,7 @@
             MsgBox("ไม่พบไฟล์ reserved.csv กำลังสร้างไฟล์ใหม่")
             System.IO.File.Create(My.Computer.FileSystem.CurrentDirectory + "\bin\reserved.csv")
         Else
-            IO.File.AppendAllText("bin\userdata.csv", DateTimePicker1.Value + "," + main.Passenger.Name.ToString + "," + main.Passenger.Sirname + "," + main.Passenger.Origin + "," + main.Passenger.Destination + "," + reserve_train + "," + ComboBox4.Text + "," + total + "," + vbNewLine)
+            IO.File.AppendAllText("bin\reserved.csv", DateTimePicker1.Value.Date.ToString + "," + main.Passenger.Name.ToString + "," + main.Passenger.Sirname + "," + main.Passenger.Origin + "," + main.Passenger.Destination + "," + reserve_train + "," + ComboBox4.Text + "," + total.ToString + vbNewLine)
         End If
     End Sub
 End Class

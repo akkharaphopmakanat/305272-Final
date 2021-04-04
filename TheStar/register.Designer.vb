@@ -153,6 +153,8 @@ Partial Class register
         Me.Controls.Add(Me.login_lbl_user)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.birthday)
+        Me.MaximumSize = New System.Drawing.Size(387, 243)
+        Me.MinimumSize = New System.Drawing.Size(387, 243)
         Me.Name = "register"
         Me.Text = "ลงทะเบียน"
         Me.ResumeLayout(False)

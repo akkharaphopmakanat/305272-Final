@@ -280,9 +280,11 @@ Partial Class reservation
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(648, 552)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(648, 552)
         Me.Name = "reservation"
-        Me.Text = "reservation"
+        Me.Text = "จองตั๋ว"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

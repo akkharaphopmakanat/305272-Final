@@ -6,127 +6,173 @@ Public Class main
     Dim stn_th, stn_en, stn_km As New List(Of String)
     Dim Dindex, Oindex As Integer
     Dim o_stop, d_stop, train_between As New List(Of String)
-    Function initStation()
-        If Not System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\bin\data.csv") Then
-            MsgBox("ไม่พบไฟล์ข้อมูล data.csv")
-            Application.Exit()
-        End If
-        Dim MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(My.Computer.FileSystem.CurrentDirectory + "\bin\data.csv")
-        MyReader.TextFieldType = FileIO.FieldType.Delimited
-        MyReader.SetDelimiters(",")
-        Dim currentRow As String()
-        While Not MyReader.EndOfData
-            Try
-                currentRow = MyReader.ReadFields()
-                Dim currentField As String
-                Dim i = 0
-                For Each currentField In currentRow
-                    If i = 3 Then
-                        i = 0
-                    End If
-                    If i = 0 Then
-                        ComboBox_Origin.Items.Add(currentField)
-                        ComboBox_Destination.Items.Add(currentField)
-                        stn_th.Add(currentField)
-                    End If
-                    If i = 1 Then
-                        stn_en.Add(currentField)
-                    End If
-                    If i = 2 Then
-                        stn_km.Add(currentField)
-                    End If
-                    i = i + 1
+    Sub subtrackReserved()
+        Try
+            Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\reserved.csv"
+            Dim dt As DataTable = New DataTable()
+            Dim lines As String() = System.IO.File.ReadAllLines(filepath)
+            If lines.Length > 0 Then
+                Dim firstLine As String = lines(0)
+                Dim headerLabels As String() = firstLine.Split(","c)
+                For Each headerWord As String In headerLabels
+                    dt.Columns.Add(New DataColumn(headerWord))
                 Next
-            Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-            End Try
-        End While
-    End Function
-    Function initTrain()
-        If Not System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\bin\stop.csv") Then
+                For i As Integer = 1 To lines.Length - 1
+                    Dim dataWords As String() = lines(i).Split(","c)
+                    Dim dr As DataRow = dt.NewRow()
+                    Dim columnIndex As Integer = 0
+                    For Each headerWord As String In headerLabels
+                        dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                    Next
+                    dt.Rows.Add(dr)
+                Next
+            End If
+            If dt.Rows.Count > 0 Then
+                Data_reserved.DataSource = dt
+            End If
+        Catch ex As Exception
+            MsgBox("ไม่พบไฟล์ข้อมูล reserved.csv")
+            Application.Exit()
+        End Try
+
+        Dim resDate As Date = DateTimePicker1.Value
+
+        For i = 0 To Data_reserved.Rows.Count - 1
+            If Data_reserved.Rows(i).Cells(0).Value = DateTimePicker1.Value.Date Then
+                For j = 0 To DataGridView1.Rows.Count - 1
+                    If Data_reserved.Rows(i).Cells(5).Value = DataGridView1.Rows(j).Cells(0).Value Then
+                        DataGridView1.Rows(j).Cells(4).Value -= 1
+                    End If
+                Next
+            End If
+        Next
+    End Sub
+    Sub initStation()
+        Try
+            Dim MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(My.Computer.FileSystem.CurrentDirectory + "\bin\data.csv")
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+            Dim currentRow As String()
+            While Not MyReader.EndOfData
+                Try
+                    currentRow = MyReader.ReadFields()
+                    Dim currentField As String
+                    Dim i = 0
+                    For Each currentField In currentRow
+                        If i = 3 Then
+                            i = 0
+                        End If
+                        If i = 0 Then
+                            ComboBox_Origin.Items.Add(currentField)
+                            ComboBox_Destination.Items.Add(currentField)
+                            stn_th.Add(currentField)
+                        End If
+                        If i = 1 Then
+                            stn_en.Add(currentField)
+                        End If
+                        If i = 2 Then
+                            stn_km.Add(currentField)
+                        End If
+                        i = i + 1
+                    Next
+                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
+                End Try
+            End While
+        Catch ex As Exception
+            MsgBox("ไม่พบไฟล์ข้อมูลa data.csv")
+            Application.Exit()
+        End Try
+
+    End Sub
+    Sub initTrain()
+        Try
+            Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\stop.csv"
+            Dim dt As DataTable = New DataTable()
+            Dim lines As String() = System.IO.File.ReadAllLines(filepath)
+            If lines.Length > 0 Then
+                Dim firstLine As String = lines(0)
+                Dim headerLabels As String() = firstLine.Split(","c)
+                For Each headerWord As String In headerLabels
+                    dt.Columns.Add(New DataColumn(headerWord))
+                Next
+                For i As Integer = 1 To lines.Length - 1
+                    Dim dataWords As String() = lines(i).Split(","c)
+                    Dim dr As DataRow = dt.NewRow()
+                    Dim columnIndex As Integer = 0
+                    For Each headerWord As String In headerLabels
+                        dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                    Next
+                    dt.Rows.Add(dr)
+                Next
+            End If
+            If dt.Rows.Count > 0 Then
+                Data_TimeTable.DataSource = dt
+            End If
+        Catch ex As Exception
             MsgBox("ไม่พบไฟล์ข้อมูล stop.csv")
             Application.Exit()
-        End If
-        Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\stop.csv"
-        Dim dt As DataTable = New DataTable()
-        Dim lines As String() = System.IO.File.ReadAllLines(filepath)
-        If lines.Length > 0 Then
-            Dim firstLine As String = lines(0)
-            Dim headerLabels As String() = firstLine.Split(","c)
-            For Each headerWord As String In headerLabels
-                dt.Columns.Add(New DataColumn(headerWord))
-            Next
-            For i As Integer = 1 To lines.Length - 1
-                Dim dataWords As String() = lines(i).Split(","c)
-                Dim dr As DataRow = dt.NewRow()
-                Dim columnIndex As Integer = 0
+        End Try
+    End Sub
+    Sub initTrainType()
+        Try
+            Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\type.csv"
+            Dim dt As DataTable = New DataTable()
+            Dim lines As String() = System.IO.File.ReadAllLines(filepath)
+            If lines.Length > 0 Then
+                Dim firstLine As String = lines(0)
+                Dim headerLabels As String() = firstLine.Split(","c)
                 For Each headerWord As String In headerLabels
-                    dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                    dt.Columns.Add(New DataColumn(headerWord))
                 Next
-                dt.Rows.Add(dr)
-            Next
-        End If
-        If dt.Rows.Count > 0 Then
-            Data_TimeTable.DataSource = dt
-        End If
-    End Function
-    Function initTrainType()
-        If Not System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\bin\type.csv") Then
-            MsgBox("ไม่พบไฟล์ข้อมูล type.csv")
-            Application.Exit()
-        End If
-        Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\type.csv"
-        Dim dt As DataTable = New DataTable()
-        Dim lines As String() = System.IO.File.ReadAllLines(filepath)
-        If lines.Length > 0 Then
-            Dim firstLine As String = lines(0)
-            Dim headerLabels As String() = firstLine.Split(","c)
-            For Each headerWord As String In headerLabels
-                dt.Columns.Add(New DataColumn(headerWord))
-            Next
-            For i As Integer = 1 To lines.Length - 1
-                Dim dataWords As String() = lines(i).Split(","c)
-                Dim dr As DataRow = dt.NewRow()
-                Dim columnIndex As Integer = 0
+                For i As Integer = 1 To lines.Length - 1
+                    Dim dataWords As String() = lines(i).Split(","c)
+                    Dim dr As DataRow = dt.NewRow()
+                    Dim columnIndex As Integer = 0
 
-                For Each headerWord As String In headerLabels
-                    dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                    For Each headerWord As String In headerLabels
+                        dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                    Next
+                    dt.Rows.Add(dr)
                 Next
-                dt.Rows.Add(dr)
-            Next
-        End If
-        If dt.Rows.Count > 0 Then
-            Data_Train_Type.DataSource = dt
-        End If
-    End Function
-    Function initUserData()
-        If Not System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\bin\userdata.csv") Then
+            End If
+            If dt.Rows.Count > 0 Then
+                Data_Train_Type.DataSource = dt
+            End If
+        Catch ex As Exception
+            MsgBox("ไม่พบไฟล์ข้อมูล type.csv")
+                Application.Exit()
+        End Try
+    End Sub
+    Sub initUserData()
+        Try
+            Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\userdata.csv"
+            Dim dt As DataTable = New DataTable()
+            Dim lines As String() = System.IO.File.ReadAllLines(filepath)
+            If lines.Length > 0 Then
+                Dim firstLine As String = lines(0)
+                Dim headerLabels As String() = firstLine.Split(","c)
+                For Each headerWord As String In headerLabels
+                    dt.Columns.Add(New DataColumn(headerWord))
+                Next
+                For i As Integer = 1 To lines.Length - 1
+                    Dim dataWords As String() = lines(i).Split(","c)
+                    Dim dr As DataRow = dt.NewRow()
+                    Dim columnIndex As Integer = 0
+                    For Each headerWord As String In headerLabels
+                        dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                    Next
+                    dt.Rows.Add(dr)
+                Next
+            End If
+            If dt.Rows.Count > 0 Then
+                Data_User.DataSource = dt
+            End If
+        Catch ex As Exception
             MsgBox("ไม่พบไฟล์ข้อมูล userdata.csv")
             Application.Exit()
-        End If
-        Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\userdata.csv"
-        Dim dt As DataTable = New DataTable()
-        Dim lines As String() = System.IO.File.ReadAllLines(filepath)
-        If lines.Length > 0 Then
-            Dim firstLine As String = lines(0)
-            Dim headerLabels As String() = firstLine.Split(","c)
-            For Each headerWord As String In headerLabels
-                dt.Columns.Add(New DataColumn(headerWord))
-            Next
-            For i As Integer = 1 To lines.Length - 1
-                Dim dataWords As String() = lines(i).Split(","c)
-                Dim dr As DataRow = dt.NewRow()
-                Dim columnIndex As Integer = 0
-                For Each headerWord As String In headerLabels
-                    dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
-                Next
-                dt.Rows.Add(dr)
-            Next
-        End If
-        If dt.Rows.Count > 0 Then
-            Data_User.DataSource = dt
-        End If
-    End Function
+        End Try
+    End Sub
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initStation()
         initTrain()
@@ -151,6 +197,7 @@ Public Class main
             reservation.lable_distance.Text = "ระยะทาง : " + reservation.km.ToString
             showTrain()
         End If
+        subtrackReserved()
     End Sub
     Private Sub ComboBox_Destination_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Destination.SelectedIndexChanged
         Passenger.Destination = ComboBox_Destination.Text
@@ -162,8 +209,9 @@ Public Class main
             reservation.lable_distance.Text = "ระยะทาง : " + reservation.km.ToString
             showTrain()
         End If
+        subtrackReserved()
     End Sub
-    Function showTrain()
+    Sub showTrain()
         train_between.Clear()
         If Oindex > Dindex Then
             Passenger.Direction = "Down"
@@ -213,8 +261,10 @@ Public Class main
             DataGridView1.Rows(i).Cells(3).Value = getTrainTime(ComboBox_Destination.Text, trn_get)
             DataGridView1.Rows(i).Cells(4).Value = getTrainType(trn_get, 4)
         Next
-    End Function
+    End Sub
     Dim dttTrnIndex As Integer
+
+
     Function getTrainType(train, col)
         For i = 0 To Data_Train_Type.Rows.Count - 1
             If Data_Train_Type.Rows(i).Cells(0).Value = train Then
@@ -244,10 +294,6 @@ Public Class main
         Next
         Return Data_TimeTable.Rows(gtdStnIndex).Cells(gtdTrnIndex).Value
     End Function
-    Private Sub btn_checktrain_Click(sender As Object, e As EventArgs) Handles btn_checktrain.Click
-        'Dim message = String.Join(Environment.NewLine, train_between.ToArray())
-        'MessageBox.Show("ขบวนที่จอด " + Passenger.Origin + Passenger.Destination + vbCrLf + message)
-    End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If Passenger.Name Is Nothing Then
             Me.Enabled = False
@@ -257,4 +303,55 @@ Public Class main
             reservation.Show()
         End If
     End Sub
+    Private Sub btn_checktrain_Click(sender As Object, e As EventArgs) Handles btn_checktrain.Click
+        If Passenger.Name Is Nothing Then
+            MsgBox("กรุณาเข้าสู่ระบบ")
+        Else
+
+            Try
+                Try
+                    Dim filepath = My.Computer.FileSystem.CurrentDirectory + "\bin\reserved.csv"
+                    Dim dt As DataTable = New DataTable()
+                    Dim lines As String() = System.IO.File.ReadAllLines(filepath)
+                    If lines.Length > 0 Then
+                        Dim firstLine As String = lines(0)
+                        Dim headerLabels As String() = firstLine.Split(","c)
+                        For Each headerWord As String In headerLabels
+                            dt.Columns.Add(New DataColumn(headerWord))
+                        Next
+                        For i As Integer = 1 To lines.Length - 1
+                            Dim dataWords As String() = lines(i).Split(","c)
+                            Dim dr As DataRow = dt.NewRow()
+                            Dim columnIndex As Integer = 0
+                            For Each headerWord As String In headerLabels
+                                dr(headerWord) = dataWords(Math.Min(System.Threading.Interlocked.Increment(columnIndex), columnIndex - 1))
+                            Next
+                            dt.Rows.Add(dr)
+                        Next
+                    End If
+                    If dt.Rows.Count > 0 Then
+                        Data_reserved.DataSource = dt
+                    End If
+                Catch ex As Exception
+                    MsgBox("ไม่พบไฟล์ข้อมูล reserved.csv")
+                    Application.Exit()
+                End Try
+
+
+                Dim destrow = 0
+                For i = 0 To Data_reserved.Rows.Count - 1
+                    If Data_reserved.Rows(i).Cells(1).Value = Passenger.Name AndAlso Data_reserved.Rows(i).Cells(2).Value = Passenger.Sirname Then
+                        check.DataGridView1.Rows.Add()
+                        For j = 0 To 7
+                            check.DataGridView1.Rows(destrow).Cells(j).Value = Data_reserved.Rows(i).Cells(j).Value
+                        Next
+                        destrow += 1
+                    End If
+                Next
+            Catch ex As Exception
+            End Try
+            check.Show()
+        End If
+    End Sub
+
 End Class

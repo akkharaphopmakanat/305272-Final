@@ -230,6 +230,8 @@ Partial Class main
         Me.Controls.Add(Me.lbl_origin)
         Me.Controls.Add(Me.ComboBox_Origin)
         Me.Controls.Add(Me.btn_login)
+        Me.MaximumSize = New System.Drawing.Size(584, 675)
+        Me.MinimumSize = New System.Drawing.Size(584, 675)
         Me.Name = "main"
         Me.Text = "The Star Ticket"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
