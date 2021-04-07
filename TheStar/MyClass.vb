@@ -1,7 +1,7 @@
 ﻿Imports System.Text
 Public Class Passenger
-    Public Name, Sirname, Username, Password, UserType, Origin, Destination, Direction As String
-    Public Age, Discount As Integer
+    Public Name, Sirname, Username, Password, Origin, Destination, Direction As String
+    Public Age As Integer
     Public Birthday As Date
     Public Sub Register(Username, Password, Name, Sirname, Birthday)
         Me.Username = Username
@@ -38,14 +38,15 @@ Public Class Passenger
                 MsgBox("ขออภัยรหัสผิดพลาด หรือ ไม่พบผู้ใช้ในระบบ")
             End If
         Else
-            main.Label2.Text = "กรุณาเข้าสู่ระบบเพื่อจองตั๋ว"
-            main.btn_login.Text = "เข้าสู่ระบบ"
-            Me.Username = Nothing
-            Me.Name = Nothing
-            Me.Sirname = Nothing
-            Me.Birthday = Nothing
+            Logout()
         End If
     End Sub
     Public Sub Logout()
+        Main.Label2.Text = "กรุณาเข้าสู่ระบบเพื่อจองตั๋ว"
+        Main.btn_login.Text = "เข้าสู่ระบบ"
+        Me.Username = Nothing
+        Me.Name = Nothing
+        Me.Sirname = Nothing
+        Me.Birthday = Nothing
     End Sub
 End Class

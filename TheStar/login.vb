@@ -1,4 +1,4 @@
-﻿Public Class login
+﻿Public Class Login
     Function userExist(username)
         Dim isAvail As Boolean = False
         For i = 0 To main.Data_User.Rows.Count - 1
@@ -21,5 +21,9 @@
             main.Enabled = True
             Me.Close()
         End If
+    End Sub
+
+    Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

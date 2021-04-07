@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class reservation
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Reservation
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class reservation
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
@@ -244,14 +244,14 @@ Partial Class reservation
         Me.lable_total.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lable_total.AutoSize = True
         Me.lable_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.lable_total.Location = New System.Drawing.Point(330, 348)
+        Me.lable_total.Location = New System.Drawing.Point(330, 324)
         Me.lable_total.Name = "lable_total"
         Me.lable_total.Size = New System.Drawing.Size(279, 29)
         Me.lable_total.TabIndex = 25
         Me.lable_total.Text = "ยอดที่ต้องชำระ :                    "
         Me.lable_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'reservation
+        'Reservation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -283,7 +283,7 @@ Partial Class reservation
         Me.MaximumSize = New System.Drawing.Size(648, 552)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(648, 552)
-        Me.Name = "reservation"
+        Me.Name = "Reservation"
         Me.Text = "จองตั๋ว"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class register
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Register
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class register
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.birthday = New System.Windows.Forms.DateTimePicker()
@@ -123,7 +123,7 @@ Partial Class register
         Me.Register_Register.Name = "Register_Register"
         Me.Register_Register.Size = New System.Drawing.Size(345, 23)
         Me.Register_Register.TabIndex = 18
-        Me.Register_Register.Text = "Register"
+        Me.Register_Register.Text = "ลงทะเบียน"
         Me.Register_Register.UseVisualStyleBackColor = True
         '
         'CheckBox5
@@ -137,7 +137,7 @@ Partial Class register
         Me.CheckBox5.Text = "ผู้สูงอายุ (60ปีขึ้นไป)"
         Me.CheckBox5.UseVisualStyleBackColor = True
         '
-        'register
+        'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -156,7 +156,7 @@ Partial Class register
         Me.Controls.Add(Me.birthday)
         Me.MaximumSize = New System.Drawing.Size(387, 243)
         Me.MinimumSize = New System.Drawing.Size(387, 243)
-        Me.Name = "register"
+        Me.Name = "Register"
         Me.Text = "ลงทะเบียน"
         Me.ResumeLayout(False)
         Me.PerformLayout()

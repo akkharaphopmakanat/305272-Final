@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.FileIO.TextFieldParser
 Imports System.IO
 Imports System.Data.Sql
-Public Class main
+Public Class Main
     Public Passenger As New Passenger
     Dim stn_th, stn_en, stn_km As New List(Of String)
     Dim Dindex, Oindex As Integer
@@ -141,7 +141,7 @@ Public Class main
             End If
         Catch ex As Exception
             MsgBox("ไม่พบไฟล์ข้อมูล type.csv")
-                Application.Exit()
+            Application.Exit()
         End Try
     End Sub
     Sub initUserData()

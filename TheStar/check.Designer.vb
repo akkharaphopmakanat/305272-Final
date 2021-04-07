@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class check
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Check
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class check
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -58,43 +58,51 @@ Partial Class check
         '
         Me.วันที่.HeaderText = "วันที่"
         Me.วันที่.Name = "วันที่"
+        Me.วันที่.ReadOnly = True
         '
         'ชื่อ
         '
         Me.ชื่อ.HeaderText = "ชื่อ"
         Me.ชื่อ.Name = "ชื่อ"
+        Me.ชื่อ.ReadOnly = True
         '
         'นามสกุล
         '
         Me.นามสกุล.HeaderText = "นามสกุล"
         Me.นามสกุล.Name = "นามสกุล"
+        Me.นามสกุล.ReadOnly = True
         '
         'ต้นทาง
         '
         Me.ต้นทาง.HeaderText = "ต้นทาง"
         Me.ต้นทาง.Name = "ต้นทาง"
+        Me.ต้นทาง.ReadOnly = True
         '
         'ปลายทาง
         '
         Me.ปลายทาง.HeaderText = "ปลายทาง"
         Me.ปลายทาง.Name = "ปลายทาง"
+        Me.ปลายทาง.ReadOnly = True
         '
         'ขบวน
         '
         Me.ขบวน.HeaderText = "ขบวน"
         Me.ขบวน.Name = "ขบวน"
+        Me.ขบวน.ReadOnly = True
         '
         'ชั้น
         '
         Me.ชั้น.HeaderText = "ชั้น"
         Me.ชั้น.Name = "ชั้น"
+        Me.ชั้น.ReadOnly = True
         '
         'ราคา
         '
         Me.ราคา.HeaderText = "ราคา"
         Me.ราคา.Name = "ราคา"
+        Me.ราคา.ReadOnly = True
         '
-        'check
+        'Check
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -106,7 +114,7 @@ Partial Class check
         Me.MaximumSize = New System.Drawing.Size(885, 630)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(885, 630)
-        Me.Name = "check"
+        Me.Name = "Check"
         Me.Text = "ประวัติการจอง"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

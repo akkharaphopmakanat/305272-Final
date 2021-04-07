@@ -1,4 +1,4 @@
-﻿Public Class register
+﻿Public Class Register
 
     Private Sub Reg_Register_Click(sender As Object, e As EventArgs) Handles Register_Register.Click
         If login.userExist(reg_input_user.Text) Then

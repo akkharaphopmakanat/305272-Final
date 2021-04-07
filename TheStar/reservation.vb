@@ -1,4 +1,4 @@
-﻿Public Class reservation
+﻿Public Class Reservation
     Public km As Single
     Dim total As Integer
     Dim fee_type As Single
